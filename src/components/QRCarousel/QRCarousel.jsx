@@ -12,6 +12,8 @@ const CARD_HEIGHT = width;
 const CarouselContainer = styled("div")(() => ({
   display: "flex",
   overflowX: "auto",
+  width: "330px",
+  gap: "16px",
 }));
 
 const CarouselItem = styled("div")(({ width, height }) => ({

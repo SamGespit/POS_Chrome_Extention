@@ -1,7 +1,6 @@
 import { keyframes } from "@mui/material/styles";
 import { styled } from "@mui/system";
 import { Box, Typography } from "@mui/material";
-import QrCodeIcon from "@mui/icons-material/QrCode";
 import ErrorIcon from "@mui/icons-material/Error";
 import QRCode from "react-qr-code";
 
@@ -80,7 +79,6 @@ const ErrorContainer = styled(Box)({
 });
 
 const QRCard = ({ item }) => {
-  console.log("QRCard item:", item);
   return (
     <Card>
       {item.type === "qr" ? (
@@ -88,10 +86,15 @@ const QRCard = ({ item }) => {
           {item.value ? (
             <>
               <QRCode value={item.value} size={cardSize - 64} />
-              <ShimmerOverlay />
-              <LoadingIcon>
-                <QrCodeIcon sx={{ fontSize: 48, color: "#e5e7eb" }} />
-              </LoadingIcon>
+              {item.img && (
+                <LogoOverlay>
+                  <img
+                    src={item.img}
+                    alt="Logo"
+                    style={{ width: 32, height: 32, objectFit: "contain" }}
+                  />
+                </LogoOverlay>
+              )}
             </>
           ) : item.value && item.value.trim() !== "" ? (
             <>

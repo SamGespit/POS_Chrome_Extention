@@ -1,7 +1,7 @@
 {
   "name": "React Chrome Side Panel",
   "description": "A Chrome Extension Side Panel built with React.",
-  "version": "0.6",
+  "version": "0.8",
   "manifest_version": 3,
   "action": {
     "default_title": "Open Side Panel"

@@ -60,31 +60,31 @@ const HomePage = () => {
   const generateAndSetQR = useCallback(() => {
     const availableQRFormats = [
       {
-        id: "ethereum",
-        name: "Ethereum",
-        icon: "okx.png", // or "trust.png" or undefined
+        id: "1",
+        name: "classic",
+        icon: undefined,
         prefix: "ethereum",
         decimals: 18,
       },
       {
-        id: "bnb",
-        name: "BNB Chain",
-        icon: "trust.png",
+        id: "2",
+        name: "okx",
+        icon: "okx.png",
         prefix: "bnb",
         decimals: 18,
       },
       {
-        id: "polygon",
-        name: "Polygon",
-        icon: undefined,
-        prefix: "polygon",
+        id: "3",
+        name: "Trust",
+        icon: "trust.png",
+        prefix: "T",
         decimals: 18,
       },
       {
-        id: "avalanche",
-        name: "Avalanche",
+        id: "4",
+        name: "regular",
         icon: undefined,
-        prefix: "avalanche",
+        prefix: "R",
         decimals: 18,
       },
     ];
@@ -109,10 +109,10 @@ const HomePage = () => {
       if (format.icon) {
         switch (format.icon) {
           case "okx.png":
-            iconPath = "@/assets/images/okx.png";
+            iconPath = "/assets/images/okx.png";
             break;
           case "trust.png":
-            iconPath = "@/assets/images/trust.png";
+            iconPath = "/assets/images/trust.png";
             break;
         }
       }
@@ -156,6 +156,17 @@ const HomePage = () => {
     }
   }, [amount, debouncedGenerateAndSetQR]);
 
+  const amountChangeHandler = (e) => {
+    const value = e.target.value;
+    // Only allow positive numbers above 0
+    if (
+      value === "" ||
+      (Number(value) > 0 && /^[0-9]*\.?[0-9]*$/.test(value))
+    ) {
+      setAmount(value);
+    }
+  };
+
   return (
     <MainContainer>
       <QRContainer>
@@ -164,11 +175,11 @@ const HomePage = () => {
 
       <StyledNumberInput
         type="number"
-        placeholder="Enter a number"
         fullWidth
         variant="outlined"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        inputProps={{ min: 1, step: "any" }}
+        onChange={amountChangeHandler}
       />
 
       <div style={{ width: "100%" }}>

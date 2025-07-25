@@ -1,12 +1,33 @@
-# React + Vite
+# POS Chrome Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based Chrome extension for Point-of-Sale (POS) functionality. It uses Webpack for bundling and MUI for UI components.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- QR code generation and display
+- Network selection
+- Responsive design
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run in development mode:
+
+```bash
+npm start
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## ESLint
+
+ESLint is configured for code quality. You can expand the configuration as needed for your team or project.
