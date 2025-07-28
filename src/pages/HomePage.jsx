@@ -3,6 +3,8 @@ import NetworksSwitch from "../components/NetworkSelector/NetworkSelector";
 import { styled } from "@mui/material/styles";
 import QRCarousel from "../components/QRCarousel/QRCarousel";
 import TextField from "@mui/material/TextField";
+import WalletCards from "./WalletCards";
+import getConfigData from "../utils/FetchConfig";
 
 const StyledNumberInput = styled(TextField)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -56,6 +58,10 @@ const HomePage = () => {
   const [qrs, setQrs] = useState([
     { type: "image", source: "/assets/images/QR.png" },
   ]);
+
+  useEffect(() => {
+    getConfigData();
+  }, []);
 
   const generateAndSetQR = useCallback(() => {
     const availableQRFormats = [

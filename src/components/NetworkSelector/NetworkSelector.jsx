@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
 const ITEM_WIDTH = 300;
 const ITEM_HEIGHT = 70;
@@ -39,6 +40,7 @@ const PlusIcon = styled("img")({
 });
 
 const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
+  const navigate = useNavigate();
   const networkLogos = {
     ethereum: "/assets/networks/ethereum.png",
     avalanche: "/assets/networks/avalanche.png",
@@ -93,6 +95,9 @@ const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
     setSelectedSlot(item.slot);
     onSetNetwork(item.slot);
   };
+  const addNetworkHandler = () => {
+    navigate("walletCards");
+  };
 
   return (
     <CarouselContainer>
@@ -119,7 +124,10 @@ const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
                 </Typography>
               </>
             ) : (
-              <PlusIcon src="/assets/images/plus-circle.png" />
+              <PlusIcon
+                src="/assets/images/plus-circle.png"
+                onClick={addNetworkHandler}
+              />
             )}
           </CarouselItemBox>
         );
