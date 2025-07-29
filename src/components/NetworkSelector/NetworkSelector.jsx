@@ -39,7 +39,7 @@ const PlusIcon = styled("img")({
   height: 30,
 });
 
-const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
+const NetworksSwitch = ({ selectedSlot }) => {
   const navigate = useNavigate();
   const networkLogos = {
     ethereum: "/assets/networks/ethereum.png",
@@ -90,13 +90,8 @@ const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
     },
   ];
 
-  const handleClick = (item) => {
-    if (!item.hasAddress) return;
-    setSelectedSlot(item.slot);
-    onSetNetwork(item.slot);
-  };
   const addNetworkHandler = () => {
-    navigate("walletCards");
+    navigate("/walletCards");
   };
 
   return (
@@ -109,7 +104,7 @@ const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
         return (
           <CarouselItemBox
             key={item.slot}
-            onClick={() => handleClick(item)}
+            onClick={addNetworkHandler}
             sx={{
               backgroundColor: bgColor,
               transform: isActive ? "scale(1)" : "scale(0.9)",
@@ -124,10 +119,7 @@ const NetworksSwitch = ({ selectedSlot, setSelectedSlot, onSetNetwork }) => {
                 </Typography>
               </>
             ) : (
-              <PlusIcon
-                src="/assets/images/plus-circle.png"
-                onClick={addNetworkHandler}
-              />
+              <PlusIcon src="/assets/images/plus-circle.png" />
             )}
           </CarouselItemBox>
         );

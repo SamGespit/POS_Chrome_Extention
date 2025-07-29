@@ -1,17 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WalletCards from "./pages/WalletCards";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/walletCards" element={<WalletCards />} />
-        </Routes>
-      </Router>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/walletCards" element={<WalletCards />} />
+    </Routes>
   );
 }
 

@@ -1,13 +1,14 @@
 {
   "name": "React Chrome Side Panel",
   "description": "A Chrome Extension Side Panel built with React.",
-  "version": "0.8",
+  "version": "1.4",
   "manifest_version": 3,
   "action": {
-    "default_title": "Open Side Panel"
+    "default_title": "Open Side Panel",
+    "default_popup": "index.html"
   },
-  "permissions": ["sidePanel"],
-  "host_permissions": ["<all_urls>"],        
+  "permissions": ["sidePanel", "clipboardRead", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
